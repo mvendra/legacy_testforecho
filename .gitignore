@@ -1,0 +1,10 @@
+
+*.swp
+*.o
+testforecho.mk
+testforecho.txt
+
+./build/linux_x64_debug
+./build/linux_x64_release
+./run
+
