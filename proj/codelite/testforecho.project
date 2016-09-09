@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="testforecho" InternalType="Console">
   <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00020001N0005Debug0000000000000001N0007Release000000000000]]>
+    </Plugin>
     <Plugin Name="CMakePlugin">
       <![CDATA[[{
   "name": "Debug",
@@ -22,9 +25,6 @@
   "parentProject": ""
  }]]]>
     </Plugin>
-    <Plugin Name="qmake">
-      <![CDATA[00020001N0005Debug0000000000000001N0007Release000000000000]]>
-    </Plugin>
   </Plugins>
   <Description/>
   <Dependencies/>
@@ -45,9 +45,7 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
     <Configuration Name="Debug" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-g;-O0;-pedantic;-W;-std=c++14;-Wall;-Wextra;-Weffc++;-Werror;-fPIC" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
-        <IncludePath Value="."/>
-      </Compiler>
+      <Compiler Options="-g;-O0;-pedantic;-W;-std=c++14;-Wall;-Wextra;-Weffc++;-Werror;-fPIC" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0"/>
       <Linker Options="" Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="../../run/linux_x64_debug/$(ProjectName)" IntermediateDirectory="../../build/linux_x64_debug" Command="../../$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="../../run/linux_x64_debug" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
@@ -84,7 +82,6 @@
     </Configuration>
     <Configuration Name="Release" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-O2;-pedantic;-W;-std=c++14;-Wall;-Wextra;-Weffc++;-Werror;-fPIC" C_Options="-O2;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
-        <IncludePath Value="."/>
         <Preprocessor Value="NDEBUG"/>
       </Compiler>
       <Linker Options="" Required="yes"/>
