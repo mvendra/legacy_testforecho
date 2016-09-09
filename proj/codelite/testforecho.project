@@ -29,10 +29,10 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
-    <File Name="src/main.cpp"/>
-    <File Name="src/testforecho.h"/>
-    <File Name="src/test_testforecho.cpp"/>
-    <File Name="src/test_testforecho.h"/>
+    <File Name="../../src/main.cpp"/>
+    <File Name="../../src/testforecho.h"/>
+    <File Name="../../src/test_testforecho.cpp"/>
+    <File Name="../../src/test_testforecho.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
@@ -50,7 +50,7 @@
       </Compiler>
       <Linker Options="" Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>
-      <General OutputFile="./run/linux_x64_debug/$(ProjectName)" IntermediateDirectory="./build/linux_x64_debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="./run/linux_x64_debug" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <General OutputFile="../../run/linux_x64_debug/$(ProjectName)" IntermediateDirectory="../../build/linux_x64_debug" Command="../../$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="../../run/linux_x64_debug" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
         <![CDATA[]]>
       </Environment>
@@ -89,7 +89,7 @@
       </Compiler>
       <Linker Options="" Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>
-      <General OutputFile="./run/linux_x64_release/$(ProjectName)" IntermediateDirectory="./build/linux_x64_release" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="./run/linux_x64_release" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <General OutputFile="../../run/linux_x64_release/$(ProjectName)" IntermediateDirectory="../../build/linux_x64_release" Command="../../$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="../../run/linux_x64_release" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
         <![CDATA[]]>
       </Environment>

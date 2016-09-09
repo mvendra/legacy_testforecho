@@ -1,8 +1,8 @@
 
 *.swp
 *.o
-testforecho.mk
-testforecho.txt
+proj/codelite/testforecho.mk
+proj/codelite/testforecho.txt
 
 build/linux_x64_debug
 build/linux_x64_release
