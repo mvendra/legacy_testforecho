@@ -13,7 +13,7 @@
 
 #define PRINT_ERROR(MSG) std::cout << COLOR_RED << MSG << COLOR_WHITE << std::endl;
 #define PRINT_SUCCESS(MSG) std::cout << COLOR_GREEN << MSG << COLOR_WHITE << std::endl;
-#define PRINT_NEUTRAL(MSG) std::cout << COLOR_WHITE << MSG << std::endl;
+#define PRINT_INFO(MSG) std::cout << COLOR_WHITE << MSG << std::endl;
 
 #define PASS(MSG) PRINT_SUCCESS("Passed: " + MSG); return true;
 #define FAIL(MSG) PRINT_ERROR("FAILED: " + MSG); return false;
