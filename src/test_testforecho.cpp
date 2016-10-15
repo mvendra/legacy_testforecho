@@ -146,12 +146,9 @@ bool test_testforecho(){
         T4E_MAKE(p_int, {throw 1;})
         test_any_no_ex(ret, "IF THIS FAILS, IT'S A SUCCESS! Should fail when INT exception is thrown", T4E_GET(p_int));
         TEST_FLAG(!ret); // expected: false
-    }
-    {
-        bool ret {true};
         T4E_MAKE(p_double, {throw 1.1;})
         test_any_no_ex(ret, "IF THIS FAILS, IT'S A SUCCESS! Should fail when DOUBLE exception is thrown", T4E_GET(p_double));
-        TEST_FLAG(!ret) // expected: false
+        TEST_FLAG(!ret); // expected: false
     }
 
     // TEST_TRUE
