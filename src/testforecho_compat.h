@@ -24,7 +24,7 @@ struct subject_code {
 // Failures: Any other type of exception, or no exception is thrown.
 
 template <typename T>
-bool test_ex(const std::string &msg, subject_code *testcase){
+inline bool test_ex(const std::string &msg, subject_code *testcase){
     try {
         testcase->run();
         FAIL(msg);
@@ -40,7 +40,7 @@ bool test_ex(const std::string &msg, subject_code *testcase){
 // Failures: Exception of type |T| is thrown.
 
 template <typename T>
-bool test_no_ex(const std::string &msg, subject_code *testcase){
+inline bool test_no_ex(const std::string &msg, subject_code *testcase){
     try {
         testcase->run();
         PASS(msg);
@@ -55,7 +55,7 @@ bool test_no_ex(const std::string &msg, subject_code *testcase){
 // Success: Any exception is thrown.
 // Failures: No exception is thrown.
 
-bool test_any_ex(const std::string &msg, subject_code *testcase){
+inline bool test_any_ex(const std::string &msg, subject_code *testcase){
     try {
         testcase->run();
         FAIL(msg);
@@ -68,7 +68,7 @@ bool test_any_ex(const std::string &msg, subject_code *testcase){
 // Success: No exception is thrown.
 // Failures: Any exception is thrown.
 
-bool test_any_no_ex(const std::string &msg, subject_code *testcase){
+inline bool test_any_no_ex(const std::string &msg, subject_code *testcase){
     try {
         testcase->run();
         PASS(msg);
@@ -194,20 +194,20 @@ bool test_le(const std::string &msg, X param1, Y param2){
 // INTERFACE EXTENSIONS
 
 template <typename T>
-void test_ex(bool &total, const std::string &msg, subject_code *testcase){
+inline void test_ex(bool &total, const std::string &msg, subject_code *testcase){
     total &= test_ex<T>(msg, testcase);
 }
 
 template <typename T>
-void test_no_ex(bool &total, const std::string &msg, subject_code *testcase){
+inline void test_no_ex(bool &total, const std::string &msg, subject_code *testcase){
     total &= test_no_ex<T>(msg, testcase);
 }
 
-void test_any_ex(bool &total, const std::string &msg, subject_code *testcase){
+inline void test_any_ex(bool &total, const std::string &msg, subject_code *testcase){
     total &= test_any_ex(msg, testcase);
 }
 
-void test_any_no_ex(bool &total, const std::string &msg, subject_code *testcase){
+inline void test_any_no_ex(bool &total, const std::string &msg, subject_code *testcase){
     total &= test_any_no_ex(msg, testcase);
 }
 
