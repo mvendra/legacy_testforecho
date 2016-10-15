@@ -9,17 +9,22 @@ bool test_testforecho(){
 
 #define TEST_FLAG(BOOL_EXPR) if (!BOOL_EXPR) { std::cout << "Incorrect flag!" << std::endl; return false; }
 
+    #ifdef COMPILER_NO_CONCEPTS_SUPPORT
+    PRINT_INFO("Using testforecho in compatibility mode (no param auto)")
+    #endif
+
     ///////////////////
     // BOOL NOT WRAPPED
     ///////////////////
 
-
+    #ifndef COMPILER_NO_CONCEPTS_SUPPORT
     // TEST
     {
         auto comp = [](auto p1, auto p2) { return (p1 != p2); };
         bool ret {test("Must be different", 5, 6, comp)};
         TEST_FLAG(ret) // expected: true
     }
+    //#endif // COMPILER_NO_CONCEPTS_SUPPORT // mvdebug
 
     // TEST_EX
     {
@@ -48,6 +53,7 @@ bool test_testforecho(){
         bool ret {test_any_no_ex("Must not throw anything", p)};
         TEST_FLAG(ret) // expected: true
     }
+    #endif // COMPILER_NO_CONCEPTS_SUPPORT // mvdebug
 
     // TEST_TRUE
     {
@@ -101,7 +107,7 @@ bool test_testforecho(){
     // BOOL WRAPPED
     ///////////////
 
-
+    #ifndef COMPILER_NO_CONCEPTS_SUPPORT
     // TEST
     {
         bool ret {true};
@@ -109,6 +115,7 @@ bool test_testforecho(){
         test(ret, "Must be same", 1, 1, comp);
         TEST_FLAG(ret) // expected: true
     }
+    //#endif // COMPILER_NO_CONCEPTS_SUPPORT // mvdebug
 
     // TEST_EX
     {
@@ -144,6 +151,7 @@ bool test_testforecho(){
         test_any_no_ex(ret, "IF THIS FAILS, IT'S A SUCCESS! Should fail when DOUBLE exception is thrown", p_double);
         TEST_FLAG(!ret) // expected: false
     }
+    #endif // COMPILER_NO_CONCEPTS_SUPPORT // mvdebug
 
     // TEST_TRUE
     {
