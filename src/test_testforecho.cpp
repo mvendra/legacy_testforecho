@@ -24,36 +24,35 @@ bool test_testforecho(){
         bool ret {test("Must be different", 5, 6, comp)};
         TEST_FLAG(ret) // expected: true
     }
-    //#endif // COMPILER_NO_CONCEPTS_SUPPORT // mvdebug
+    #endif // COMPILER_NO_CONCEPTS_SUPPORT
 
     // TEST_EX
     {
-        auto p = []() { throw 1; };
-        bool ret {test_ex<int>("Must throw int", p)};
+        T4E_MAKE(p, {throw 1;})
+        bool ret {test_ex<int>("Must throw int", T4E_GET(p))};
         TEST_FLAG(ret) // expected: true
     }
 
     // TEST_NO_EX
     {
-        auto p = []() { throw 1; };
-        bool ret {test_no_ex<double>("Must NOT throw double", p)};
+        T4E_MAKE(p, {throw 1;})
+        bool ret {test_no_ex<double>("Must NOT throw double", T4E_GET(p))};
         TEST_FLAG(ret) // expected: true
     }
 
     // TEST_ANY_EX
     {
-        auto p = []() { throw 'a'; };
-        bool ret {test_any_ex("Must throw something", p)};
+        T4E_MAKE(p, {throw 'a';})
+        bool ret {test_any_ex("Must throw something", T4E_GET(p))};
         TEST_FLAG(ret) // expected: true
     }
 
     // TEST_ANY_NO_EX
     {
-        auto p = []() { /* i dont throw */ };
-        bool ret {test_any_no_ex("Must not throw anything", p)};
+        T4E_MAKE(p, {/* i dont throw */})
+        bool ret {test_any_no_ex("Must not throw anything", T4E_GET(p))};
         TEST_FLAG(ret) // expected: true
     }
-    #endif // COMPILER_NO_CONCEPTS_SUPPORT // mvdebug
 
     // TEST_TRUE
     {
@@ -115,43 +114,45 @@ bool test_testforecho(){
         test(ret, "Must be same", 1, 1, comp);
         TEST_FLAG(ret) // expected: true
     }
-    //#endif // COMPILER_NO_CONCEPTS_SUPPORT // mvdebug
+    #endif // COMPILER_NO_CONCEPTS_SUPPORT
 
     // TEST_EX
     {
         bool ret {true};
-        auto p = []() { throw 1; };
-        test_ex<int>(ret, "Must throw int", p);
+        T4E_MAKE(p, {throw 1;})
+        test_ex<int>(ret, "Must throw int", T4E_GET(p));
         TEST_FLAG(ret) // expected: true
     }
 
     // TEST_NO_EX
     {
         bool ret {true};
-        auto p = []() { throw 1; };
-        test_no_ex<double>(ret, "Must NOT throw double", p);
+        T4E_MAKE(p, {throw 1;})
+        test_no_ex<double>(ret, "Must NOT throw double", T4E_GET(p));
         TEST_FLAG(ret) // expected: true
     }
 
     // TEST_ANY_EX
     {
         bool ret {true};
-        auto p = []() { /* i dont throw */ };
-        test_any_ex(ret, "IF THIS FAILS, IT'S A SUCCESS! Should fail when no exception is thrown", p);
+        T4E_MAKE(p, {/* i dont throw */})
+        test_any_ex(ret, "IF THIS FAILS, IT'S A SUCCESS! Should fail when no exception is thrown", T4E_GET(p));
         TEST_FLAG(!ret) // expected: false
     }
 
     // TEST_ANY_NO_EX
     {
         bool ret {true};
-        auto p_int = []() { throw 1; };
-        auto p_double = []() { throw 1.1; };
-        test_any_no_ex(ret, "IF THIS FAILS, IT'S A SUCCESS! Should fail when INT exception is thrown", p_int);
+        T4E_MAKE(p_int, {throw 1;})
+        test_any_no_ex(ret, "IF THIS FAILS, IT'S A SUCCESS! Should fail when INT exception is thrown", T4E_GET(p_int));
         TEST_FLAG(!ret); // expected: false
-        test_any_no_ex(ret, "IF THIS FAILS, IT'S A SUCCESS! Should fail when DOUBLE exception is thrown", p_double);
+    }
+    {
+        bool ret {true};
+        T4E_MAKE(p_double, {throw 1.1;})
+        test_any_no_ex(ret, "IF THIS FAILS, IT'S A SUCCESS! Should fail when DOUBLE exception is thrown", T4E_GET(p_double));
         TEST_FLAG(!ret) // expected: false
     }
-    #endif // COMPILER_NO_CONCEPTS_SUPPORT // mvdebug
 
     // TEST_TRUE
     {

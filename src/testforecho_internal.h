@@ -7,6 +7,9 @@
 #pragma GCC system_header // disabling error-triggering warnings
 #endif
 
+#define T4E_MAKE(A, B) auto A = []() { B };
+#define T4E_GET(A) A
+
 // BASIC TESTING
 
 // Calls |func| with |param1| and |param2|
