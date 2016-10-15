@@ -1,7 +1,7 @@
 
-#ifndef __UNIT_TEST_TESTS_H__
-#define __UNIT_TEST_TESTS_H__
+#ifndef __TEST_TESTFORECHO_H__
+#define __TEST_TESTFORECHO_H__
 
 bool test_testforecho();
 
-#endif // __UNIT_TEST_TESTS_H__
+#endif // __TEST_TESTFORECHO_H__

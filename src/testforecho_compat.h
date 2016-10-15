@@ -14,7 +14,7 @@ struct subject_code {
     virtual void run() = 0;
 };
 
-#define T4E_MAKE(A, B) class aux_class_##A : public subject_code { virtual void run() override { B } };  std::unique_ptr<subject_code> A {std::make_unique<aux_class_##A>()};
+#define T4E_MAKE(A, ...) class aux_class_##A : public subject_code { virtual void run() override { __VA_ARGS__ } };  std::unique_ptr<subject_code> A {std::make_unique<aux_class_##A>()};
 #define T4E_GET(A) A.get()
 
 // EXCEPTION TESTING

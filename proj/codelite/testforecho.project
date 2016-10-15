@@ -53,6 +53,10 @@
     <File Name="../../src/test_testforecho.h"/>
     <File Name="../../src/testforecho_internal.h"/>
     <File Name="../../src/testforecho_compat.h"/>
+    <File Name="../../src/test_testforecho_first.cpp"/>
+    <File Name="../../src/test_testforecho_first.h"/>
+    <File Name="../../src/test_testforecho_second.cpp"/>
+    <File Name="../../src/test_testforecho_second.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
