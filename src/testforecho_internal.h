@@ -7,7 +7,9 @@
 #pragma GCC system_header // disabling error-triggering warnings
 #endif
 
-#define T4E_MAKE(A, ...) auto A = []() { __VA_ARGS__ };
+#define T4E_MAKE_0(A, ...) auto A = []() { __VA_ARGS__ };
+#define T4E_MAKE_1(A, T1, V1, ...) auto A = [&V1]() { __VA_ARGS__ };
+#define T4E_MAKE_2(A, T1, V1, T2, V2, ...) auto A = [&V1, &V2]() { __VA_ARGS__ };
 #define T4E_GET(A) A
 
 // BASIC TESTING
@@ -93,6 +95,12 @@ bool test_any_no_ex(const std::string &msg, auto testcase){
 // HELPERS
 
 template <typename X>
+bool test_nullptr(const std::string &msg, X param){
+    auto comp_eq = [](auto p1, auto p2) { return (p1 == p2); };
+    return test(msg, param, nullptr, comp_eq);
+}
+
+template <typename X>
 bool test_true(const std::string &msg, X param){
     auto comp_eq = [](auto p1, auto p2) { return (p1 == p2); };
     return test(msg, param, true, comp_eq);
@@ -163,6 +171,11 @@ void test_any_ex(bool &total, const std::string &msg, auto testcase){
 
 void test_any_no_ex(bool &total, const std::string &msg, auto testcase){
     total &= test_any_no_ex(msg, testcase);
+}
+
+template <typename X>
+void test_nullptr(bool &total, const std::string &msg, X param){
+    total &= test_nullptr<X>(msg, param);
 }
 
 template <typename X>

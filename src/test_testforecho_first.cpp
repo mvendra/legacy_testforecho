@@ -26,28 +26,28 @@ bool test_testforecho_first(){
 
     // TEST_EX
     {
-        T4E_MAKE(p, {throw 1;})
+        T4E_MAKE_0(p, {throw 1;})
         bool ret {test_ex<int>("Must throw int", T4E_GET(p))};
         TEST_FLAG(ret) // expected: true
     }
 
     // TEST_NO_EX
     {
-        T4E_MAKE(p, {throw 1;})
+        T4E_MAKE_0(p, {throw 1;})
         bool ret {test_no_ex<double>("Must NOT throw double", T4E_GET(p))};
         TEST_FLAG(ret) // expected: true
     }
 
     // TEST_ANY_EX
     {
-        T4E_MAKE(p, {throw 'a';})
+        T4E_MAKE_0(p, {throw 'a';})
         bool ret {test_any_ex("Must throw something", T4E_GET(p))};
         TEST_FLAG(ret) // expected: true
     }
 
     // TEST_ANY_NO_EX
     {
-        T4E_MAKE(p, {/* i dont throw */})
+        T4E_MAKE_0(p, {/* i dont throw */})
         bool ret {test_any_no_ex("Must not throw anything", T4E_GET(p))};
         TEST_FLAG(ret) // expected: true
     }
@@ -117,7 +117,7 @@ bool test_testforecho_first(){
     // TEST_EX
     {
         bool ret {true};
-        T4E_MAKE(p, {throw 1;})
+        T4E_MAKE_0(p, {throw 1;})
         test_ex<int>(ret, "Must throw int", T4E_GET(p));
         TEST_FLAG(ret) // expected: true
     }
@@ -125,7 +125,7 @@ bool test_testforecho_first(){
     // TEST_NO_EX
     {
         bool ret {true};
-        T4E_MAKE(p, {throw 1;})
+        T4E_MAKE_0(p, {throw 1;})
         test_no_ex<double>(ret, "Must NOT throw double", T4E_GET(p));
         TEST_FLAG(ret) // expected: true
     }
@@ -133,7 +133,7 @@ bool test_testforecho_first(){
     // TEST_ANY_EX
     {
         bool ret {true};
-        T4E_MAKE(p, {/* i dont throw */})
+        T4E_MAKE_0(p, {/* i dont throw */})
         test_any_ex(ret, "IF THIS FAILS, IT'S A SUCCESS! Should fail when no exception is thrown", T4E_GET(p));
         TEST_FLAG(!ret) // expected: false
     }
@@ -141,10 +141,10 @@ bool test_testforecho_first(){
     // TEST_ANY_NO_EX
     {
         bool ret {true};
-        T4E_MAKE(p_int, {throw 1;})
+        T4E_MAKE_0(p_int, {throw 1;})
         test_any_no_ex(ret, "IF THIS FAILS, IT'S A SUCCESS! Should fail when INT exception is thrown", T4E_GET(p_int));
         TEST_FLAG(!ret); // expected: false
-        T4E_MAKE(p_double, {throw 1.1;})
+        T4E_MAKE_0(p_double, {throw 1.1;})
         test_any_no_ex(ret, "IF THIS FAILS, IT'S A SUCCESS! Should fail when DOUBLE exception is thrown", T4E_GET(p_double));
         TEST_FLAG(!ret); // expected: false
     }

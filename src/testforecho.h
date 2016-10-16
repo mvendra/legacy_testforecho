@@ -5,7 +5,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
-#include <typeinfo> // for pretty printing bool
+#include <typeinfo> // for typeid()
 
 #define COLOR_WHITE  "\033[0m"
 #define COLOR_RED    "\033[31m"

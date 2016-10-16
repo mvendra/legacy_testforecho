@@ -9,7 +9,7 @@ bool test_testforecho_second(){
 
     // TEST_EX
     {
-        T4E_MAKE(p, {throw 1;})
+        T4E_MAKE_0(p, {throw 1;})
         bool ret {test_ex<int>("Must throw int", T4E_GET(p))};
         TEST_FLAG(ret) // expected: true
     }
@@ -23,8 +23,8 @@ bool test_testforecho_second(){
     // TEST_EX with capture
     {
         int o = 9;
-        T4E_MAKE_CAPTURE_1(p, int, o, { if (o == 9) {throw 1;} })
-        bool ret {test_ex<int>("Must throw int", T4E_GET(p))};
+        T4E_MAKE_1(p, int, o, { if (o == 9) {throw 1;} })
+        bool ret {test_ex<int>("Must throw int - single capture", T4E_GET(p))};
         TEST_FLAG(ret)
     }
 
@@ -33,7 +33,7 @@ bool test_testforecho_second(){
         int v1 {1};
         char v2 {'a'};
 
-        T4E_MAKE_CAPTURE_2(p, int, v1, char, v2, if (v1 == 1){ if (v2 == 'a'){ throw 1; }} )
+        T4E_MAKE_2(p, int, v1, char, v2, if (v1 == 1){ if (v2 == 'a'){ throw 1; }} )
         bool ret {test_ex<int>("Must throw int - from double capture", T4E_GET(p))};
         TEST_FLAG(ret)
 
