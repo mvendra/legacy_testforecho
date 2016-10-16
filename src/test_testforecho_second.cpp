@@ -28,6 +28,17 @@ bool test_testforecho_second(){
         TEST_FLAG(ret)
     }
 
+    // TEST_EX with double capture
+    {
+        int v1 {1};
+        char v2 {'a'};
+
+        T4E_MAKE_CAPTURE_2(p, int, v1, char, v2, if (v1 == 1){ if (v2 == 'a'){ throw 1; }} )
+        bool ret {test_ex<int>("Must throw int - from double capture", T4E_GET(p))};
+        TEST_FLAG(ret)
+
+    }
+
     return true;
 
 }

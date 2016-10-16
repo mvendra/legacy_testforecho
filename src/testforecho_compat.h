@@ -16,6 +16,7 @@ struct subj_code {
 
 #define T4E_MAKE(A, ...) struct aux_class_##A : public subj_code { virtual void run() override { __VA_ARGS__ } };  std::unique_ptr<subj_code> A {std::make_unique<aux_class_##A>()};
 #define T4E_MAKE_CAPTURE_1(A, T1, V1, ...) struct aux_class_##A : public subj_code { T1 &V1; aux_class_##A(T1 &_V1):V1{_V1}{} virtual void run() override { __VA_ARGS__ } }; std::unique_ptr<subj_code> A {std::make_unique<aux_class_##A>(V1)};
+#define T4E_MAKE_CAPTURE_2(A, T1, V1, T2, V2, ...) struct aux_class_##A : public subj_code { T1 &V1; T2 &V2; aux_class_##A(T1 &_V1, T2 &_V2):V1{_V1}, V2{_V2}{} virtual void run() override { __VA_ARGS__ } }; std::unique_ptr<subj_code> A {std::make_unique<aux_class_##A>(V1, V2)};
 #define T4E_GET(A) A.get()
 
 // EXCEPTION TESTING
