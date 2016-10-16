@@ -4,17 +4,18 @@
 
 #include <memory>
 
-struct subject_code {
-    subject_code() {};
-    virtual ~subject_code(){};
-    subject_code(const subject_code&) = delete;
-    subject_code(subject_code&&) = delete;
-    subject_code& operator=(const subject_code&) = delete;
-    subject_code& operator=(subject_code&&) = delete;
+struct subj_code {
+    subj_code() {};
+    virtual ~subj_code(){};
+    subj_code(const subj_code&) = delete;
+    subj_code(subj_code&&) = delete;
+    subj_code& operator=(const subj_code&) = delete;
+    subj_code& operator=(subj_code&&) = delete;
     virtual void run() = 0;
 };
 
-#define T4E_MAKE(A, ...) class aux_class_##A : public subject_code { virtual void run() override { __VA_ARGS__ } };  std::unique_ptr<subject_code> A {std::make_unique<aux_class_##A>()};
+#define T4E_MAKE(A, ...) struct aux_class_##A : public subj_code { virtual void run() override { __VA_ARGS__ } };  std::unique_ptr<subj_code> A {std::make_unique<aux_class_##A>()};
+#define T4E_MAKE_CAPTURE_1(A, T1, V1, ...) struct aux_class_##A : public subj_code { T1 &V1; aux_class_##A(T1 &_V1):V1{_V1}{} virtual void run() override { __VA_ARGS__ } }; std::unique_ptr<subj_code> A {std::make_unique<aux_class_##A>(V1)};
 #define T4E_GET(A) A.get()
 
 // EXCEPTION TESTING
@@ -24,7 +25,7 @@ struct subject_code {
 // Failures: Any other type of exception, or no exception is thrown.
 
 template <typename T>
-inline bool test_ex(const std::string &msg, subject_code *testcase){
+inline bool test_ex(const std::string &msg, subj_code *testcase){
     try {
         testcase->run();
         FAIL(msg);
@@ -40,7 +41,7 @@ inline bool test_ex(const std::string &msg, subject_code *testcase){
 // Failures: Exception of type |T| is thrown.
 
 template <typename T>
-inline bool test_no_ex(const std::string &msg, subject_code *testcase){
+inline bool test_no_ex(const std::string &msg, subj_code *testcase){
     try {
         testcase->run();
         PASS(msg);
@@ -55,7 +56,7 @@ inline bool test_no_ex(const std::string &msg, subject_code *testcase){
 // Success: Any exception is thrown.
 // Failures: No exception is thrown.
 
-inline bool test_any_ex(const std::string &msg, subject_code *testcase){
+inline bool test_any_ex(const std::string &msg, subj_code *testcase){
     try {
         testcase->run();
         FAIL(msg);
@@ -68,7 +69,7 @@ inline bool test_any_ex(const std::string &msg, subject_code *testcase){
 // Success: No exception is thrown.
 // Failures: Any exception is thrown.
 
-inline bool test_any_no_ex(const std::string &msg, subject_code *testcase){
+inline bool test_any_no_ex(const std::string &msg, subj_code *testcase){
     try {
         testcase->run();
         PASS(msg);
@@ -194,20 +195,20 @@ bool test_le(const std::string &msg, X param1, Y param2){
 // INTERFACE EXTENSIONS
 
 template <typename T>
-inline void test_ex(bool &total, const std::string &msg, subject_code *testcase){
+inline void test_ex(bool &total, const std::string &msg, subj_code *testcase){
     total &= test_ex<T>(msg, testcase);
 }
 
 template <typename T>
-inline void test_no_ex(bool &total, const std::string &msg, subject_code *testcase){
+inline void test_no_ex(bool &total, const std::string &msg, subj_code *testcase){
     total &= test_no_ex<T>(msg, testcase);
 }
 
-inline void test_any_ex(bool &total, const std::string &msg, subject_code *testcase){
+inline void test_any_ex(bool &total, const std::string &msg, subj_code *testcase){
     total &= test_any_ex(msg, testcase);
 }
 
-inline void test_any_no_ex(bool &total, const std::string &msg, subject_code *testcase){
+inline void test_any_no_ex(bool &total, const std::string &msg, subj_code *testcase){
     total &= test_any_no_ex(msg, testcase);
 }
 

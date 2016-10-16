@@ -20,6 +20,14 @@ bool test_testforecho_second(){
         TEST_FLAG(ret) // expected: true
     }
 
+    // TEST_EX with capture
+    {
+        int o = 9;
+        T4E_MAKE_CAPTURE_1(p, int, o, { if (o == 9) {throw 1;} })
+        bool ret {test_ex<int>("Must throw int", T4E_GET(p))};
+        TEST_FLAG(ret)
+    }
+
     return true;
 
 }
