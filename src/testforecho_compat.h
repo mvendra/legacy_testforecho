@@ -4,6 +4,8 @@
 
 #include <memory>
 
+namespace testforecho {
+
 struct subj_code {
     subj_code() {};
     virtual ~subj_code(){};
@@ -252,5 +254,7 @@ template <typename X, typename Y>
 void test_le(bool &total, const std::string &msg, X param1, Y param2){
     total &= test_le<X, Y>(msg, param1, param2);
 }
+
+} // ns: testforecho
 
 #endif //__TESTFORECHO_COMPAT_H__

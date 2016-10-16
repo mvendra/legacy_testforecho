@@ -7,6 +7,8 @@
 #pragma GCC system_header // disabling error-triggering warnings
 #endif
 
+namespace testforecho {
+
 #define T4E_MAKE_0(A, ...) auto A = []() { __VA_ARGS__ };
 #define T4E_MAKE_1(A, T1, V1, ...) auto A = [&V1]() { __VA_ARGS__ };
 #define T4E_MAKE_2(A, T1, V1, T2, V2, ...) auto A = [&V1, &V2]() { __VA_ARGS__ };
@@ -217,5 +219,7 @@ template <typename X, typename Y>
 void test_le(bool &total, const std::string &msg, X param1, Y param2){
     total &= test_le<X, Y>(msg, param1, param2);
 }
+
+} // ns: testforecho
 
 #endif // __TESTFORECHO_INTERNAL_H__

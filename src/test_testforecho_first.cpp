@@ -3,6 +3,8 @@
 
 #include "testforecho.h"
 
+using namespace testforecho;
+
 bool test_testforecho_first(){
 
 #define TEST_FLAG(BOOL_EXPR) if (!BOOL_EXPR) { std::cout << "Incorrect flag!" << std::endl; return false; }

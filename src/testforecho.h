@@ -7,6 +7,8 @@
 #include <sstream>
 #include <typeinfo> // for typeid()
 
+namespace testforecho {
+
 #define COLOR_WHITE  "\033[0m"
 #define COLOR_RED    "\033[31m"
 #define COLOR_GREEN  "\033[32m"
@@ -27,6 +29,8 @@ std::string handy_conversion(T val){
     ss << val;
     return ss.str(); 
 }
+
+} // ns: testforecho
 
 #ifndef COMPILER_NO_CONCEPTS_SUPPORT
 #include "testforecho_internal.h"
