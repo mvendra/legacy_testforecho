@@ -18,7 +18,7 @@ class Builder():
         _self.appname = "testforecho"
         _self.compiler = "g++"
 
-        _self.src = ["main.cpp", "test_testforecho.cpp"]
+        _self.src = ["main.cpp", "test_testforecho.cpp", "test_testforecho_first.cpp", "test_testforecho_second.cpp"]
 
         _self.src_base = "../../src/"
         _self.obj_base = "../../build/"
