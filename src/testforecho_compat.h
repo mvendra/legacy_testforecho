@@ -28,7 +28,7 @@ struct subj_code {
 // Failures: Any other type of exception, or no exception is thrown.
 
 template <typename T>
-inline bool test_ex(const std::string &msg, subj_code *testcase){
+inline unsigned int test_ex(const std::string &msg, subj_code *testcase){
     try {
         testcase->run();
         FAIL(msg);
@@ -44,7 +44,7 @@ inline bool test_ex(const std::string &msg, subj_code *testcase){
 // Failures: Exception of type |T| is thrown.
 
 template <typename T>
-inline bool test_no_ex(const std::string &msg, subj_code *testcase){
+inline unsigned int test_no_ex(const std::string &msg, subj_code *testcase){
     try {
         testcase->run();
         PASS(msg);
@@ -59,7 +59,7 @@ inline bool test_no_ex(const std::string &msg, subj_code *testcase){
 // Success: Any exception is thrown.
 // Failures: No exception is thrown.
 
-inline bool test_any_ex(const std::string &msg, subj_code *testcase){
+inline unsigned int test_any_ex(const std::string &msg, subj_code *testcase){
     try {
         testcase->run();
         FAIL(msg);
@@ -72,7 +72,7 @@ inline bool test_any_ex(const std::string &msg, subj_code *testcase){
 // Success: No exception is thrown.
 // Failures: Any exception is thrown.
 
-inline bool test_any_no_ex(const std::string &msg, subj_code *testcase){
+inline unsigned int test_any_no_ex(const std::string &msg, subj_code *testcase){
     try {
         testcase->run();
         PASS(msg);
@@ -84,7 +84,7 @@ inline bool test_any_no_ex(const std::string &msg, subj_code *testcase){
 // HELPERS
 
 template <typename X>
-bool test_true(const std::string &msg, X param){
+unsigned int test_true(const std::string &msg, X param){
 
     // reporting
     std::string t1 = handy_conversion(param);
@@ -98,7 +98,7 @@ bool test_true(const std::string &msg, X param){
 }
 
 template <typename X>
-bool test_false(const std::string &msg, X param){
+unsigned int test_false(const std::string &msg, X param){
 
     // reporting
     std::string t1 = handy_conversion(param);
@@ -112,7 +112,7 @@ bool test_false(const std::string &msg, X param){
 }
 
 template <typename X, typename Y>
-bool test_eq(const std::string &msg, X param1, Y param2){
+unsigned int test_eq(const std::string &msg, X param1, Y param2){
 
     // reporting
     std::string t1 = handy_conversion(param1);
@@ -126,7 +126,7 @@ bool test_eq(const std::string &msg, X param1, Y param2){
 }
 
 template <typename X, typename Y>
-bool test_ne(const std::string &msg, X param1, Y param2){
+unsigned int test_ne(const std::string &msg, X param1, Y param2){
 
     // reporting
     std::string t1 = handy_conversion(param1);
@@ -140,7 +140,7 @@ bool test_ne(const std::string &msg, X param1, Y param2){
 }
 
 template <typename X, typename Y>
-bool test_gt(const std::string &msg, X param1, Y param2){
+unsigned int test_gt(const std::string &msg, X param1, Y param2){
 
     // reporting
     std::string t1 = handy_conversion(param1);
@@ -154,7 +154,7 @@ bool test_gt(const std::string &msg, X param1, Y param2){
 }
 
 template <typename X, typename Y>
-bool test_ge(const std::string &msg, X param1, Y param2){
+unsigned int test_ge(const std::string &msg, X param1, Y param2){
 
     // reporting
     std::string t1 = handy_conversion(param1);
@@ -168,7 +168,7 @@ bool test_ge(const std::string &msg, X param1, Y param2){
 }
 
 template <typename X, typename Y>
-bool test_lt(const std::string &msg, X param1, Y param2){
+unsigned int test_lt(const std::string &msg, X param1, Y param2){
 
     // reporting
     std::string t1 = handy_conversion(param1);
@@ -182,7 +182,7 @@ bool test_lt(const std::string &msg, X param1, Y param2){
 }
 
 template <typename X, typename Y>
-bool test_le(const std::string &msg, X param1, Y param2){
+unsigned int test_le(const std::string &msg, X param1, Y param2){
 
     // reporting
     std::string t1 = handy_conversion(param1);
@@ -198,61 +198,61 @@ bool test_le(const std::string &msg, X param1, Y param2){
 // INTERFACE EXTENSIONS
 
 template <typename T>
-inline void test_ex(bool &total, const std::string &msg, subj_code *testcase){
-    total &= test_ex<T>(msg, testcase);
+inline void test_ex(unsigned int &total, const std::string &msg, subj_code *testcase){
+    total += test_ex<T>(msg, testcase);
 }
 
 template <typename T>
-inline void test_no_ex(bool &total, const std::string &msg, subj_code *testcase){
-    total &= test_no_ex<T>(msg, testcase);
+inline void test_no_ex(unsigned int &total, const std::string &msg, subj_code *testcase){
+    total += test_no_ex<T>(msg, testcase);
 }
 
-inline void test_any_ex(bool &total, const std::string &msg, subj_code *testcase){
-    total &= test_any_ex(msg, testcase);
+inline void test_any_ex(unsigned int &total, const std::string &msg, subj_code *testcase){
+    total += test_any_ex(msg, testcase);
 }
 
-inline void test_any_no_ex(bool &total, const std::string &msg, subj_code *testcase){
-    total &= test_any_no_ex(msg, testcase);
-}
-
-template <typename X>
-void test_true(bool &total, const std::string &msg, X param){
-    total &= test_true<X>(msg, param);
+inline void test_any_no_ex(unsigned int &total, const std::string &msg, subj_code *testcase){
+    total += test_any_no_ex(msg, testcase);
 }
 
 template <typename X>
-void test_false(bool &total, const std::string &msg, X param){
-    total &= test_false<X>(msg, param);
+void test_true(unsigned int &total, const std::string &msg, X param){
+    total += test_true<X>(msg, param);
+}
+
+template <typename X>
+void test_false(unsigned int &total, const std::string &msg, X param){
+    total += test_false<X>(msg, param);
 }
 
 template <typename X, typename Y>
-void test_eq(bool &total, const std::string &msg, X param1, Y param2){
-    total &= test_eq<X, Y>(msg, param1, param2);
+void test_eq(unsigned int &total, const std::string &msg, X param1, Y param2){
+    total += test_eq<X, Y>(msg, param1, param2);
 }
 
 template <typename X, typename Y>
-void test_ne(bool &total, const std::string &msg, X param1, Y param2){
-    total &= test_ne<X, Y>(msg, param1, param2);
+void test_ne(unsigned int &total, const std::string &msg, X param1, Y param2){
+    total += test_ne<X, Y>(msg, param1, param2);
 }
 
 template <typename X, typename Y>
-void test_gt(bool &total, const std::string &msg, X param1, Y param2){
-    total &= test_gt<X, Y>(msg, param1, param2);
+void test_gt(unsigned int &total, const std::string &msg, X param1, Y param2){
+    total += test_gt<X, Y>(msg, param1, param2);
 }
 
 template <typename X, typename Y>
-void test_ge(bool &total, const std::string &msg, X param1, Y param2){
-    total &= test_ge<X, Y>(msg, param1, param2);
+void test_ge(unsigned int &total, const std::string &msg, X param1, Y param2){
+    total += test_ge<X, Y>(msg, param1, param2);
 }
 
 template <typename X, typename Y>
-void test_lt(bool &total, const std::string &msg, X param1, Y param2){
-    total &= test_lt<X, Y>(msg, param1, param2);
+void test_lt(unsigned int &total, const std::string &msg, X param1, Y param2){
+    total += test_lt<X, Y>(msg, param1, param2);
 }
 
 template <typename X, typename Y>
-void test_le(bool &total, const std::string &msg, X param1, Y param2){
-    total &= test_le<X, Y>(msg, param1, param2);
+void test_le(unsigned int &total, const std::string &msg, X param1, Y param2){
+    total += test_le<X, Y>(msg, param1, param2);
 }
 
 } // ns: testforecho
