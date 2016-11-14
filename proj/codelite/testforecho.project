@@ -48,15 +48,17 @@
   <Dependencies/>
   <VirtualDirectory Name="src">
     <File Name="../../src/main.cpp"/>
-    <File Name="../../src/testforecho.h"/>
     <File Name="../../src/test_testforecho.cpp"/>
     <File Name="../../src/test_testforecho.h"/>
-    <File Name="../../src/testforecho_internal.h"/>
-    <File Name="../../src/testforecho_compat.h"/>
     <File Name="../../src/test_testforecho_first.cpp"/>
     <File Name="../../src/test_testforecho_first.h"/>
     <File Name="../../src/test_testforecho_second.cpp"/>
     <File Name="../../src/test_testforecho_second.h"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="include">
+    <File Name="../../include/testforecho.h"/>
+    <File Name="../../include/testforecho_compat.h"/>
+    <File Name="../../include/testforecho_internal.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
@@ -69,7 +71,9 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
     <Configuration Name="Debug" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-g;-O0;-pedantic;-W;-std=c++14;-Wall;-Wextra;-Weffc++;-Werror;-fPIC" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0"/>
+      <Compiler Options="-g;-O0;-pedantic;-W;-std=c++14;-Wall;-Wextra;-Weffc++;-Werror;-fPIC" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="../../include"/>
+      </Compiler>
       <Linker Options="" Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="../../run/linux_x64_debug/$(ProjectName)" IntermediateDirectory="../../build/linux_x64_debug" Command="../../$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="../../run/linux_x64_debug" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
@@ -106,6 +110,7 @@
     </Configuration>
     <Configuration Name="Debug (LLVM)" CompilerType="clang( tags/RELEASE_390/final )" DebuggerType="LLDB Debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-g;-O0;-pedantic;-W;-std=c++14;-Wall;-Wextra;-Weffc++;-Werror;-fPIC" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="../../include"/>
         <Preprocessor Value="COMPILER_NO_CONCEPTS_SUPPORT"/>
       </Compiler>
       <Linker Options="" Required="yes"/>
@@ -144,6 +149,7 @@
     </Configuration>
     <Configuration Name="Release" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-O2;-pedantic;-W;-std=c++14;-Wall;-Wextra;-Weffc++;-Werror;-fPIC" C_Options="-O2;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="../../include"/>
         <Preprocessor Value="NDEBUG"/>
       </Compiler>
       <Linker Options="" Required="yes"/>
@@ -182,6 +188,7 @@
     </Configuration>
     <Configuration Name="Release (LLVM)" CompilerType="clang( tags/RELEASE_390/final )" DebuggerType="LLDB Debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-O2;-pedantic;-W;-std=c++14;-Wall;-Wextra;-Weffc++;-Werror;-fPIC" C_Options="-O2;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="../../include"/>
         <Preprocessor Value="NDEBUG"/>
         <Preprocessor Value="COMPILER_NO_CONCEPTS_SUPPORT"/>
       </Compiler>
