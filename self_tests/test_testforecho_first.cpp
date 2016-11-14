@@ -72,9 +72,9 @@ unsigned int test_testforecho_first(){
         TEST_FLAG(ret) // expected: true
     }
 
-    // TEST_NE
+    // TEST_NEQ
     {
-        unsigned int ret {test_ne("Must not be equal", 'p', 57)};
+        unsigned int ret {test_neq("Must not be equal", 'p', 57)};
         TEST_FLAG(ret) // expected: true
     }
 
@@ -172,10 +172,10 @@ unsigned int test_testforecho_first(){
         TEST_FLAG(ret) // expected: true
     }
 
-    // TEST_NE
+    // TEST_NEQ
     {
         unsigned int ret {0};
-        test_ne(ret, "Must not be equal", 2, 4);
+        test_neq(ret, "Must not be equal", 2, 4);
         TEST_FLAG(ret) // expected: true
     }
 

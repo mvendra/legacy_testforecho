@@ -16,7 +16,7 @@ class Builder():
         _self.basepath = basepath
         _self.options = _self.parseoptions(options)
 
-        _self.appname = "testapp"
+        _self.appname = "testforecho"
         _self.compiler = "g++"
 
         _self.src = ["main.cpp", "test_testforecho.cpp", "test_testforecho_first.cpp", "test_testforecho_second.cpp"]

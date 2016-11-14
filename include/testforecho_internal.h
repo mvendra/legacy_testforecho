@@ -121,7 +121,7 @@ unsigned int test_eq(const std::string &msg, X param1, Y param2){
 }
 
 template <typename X, typename Y>
-unsigned int test_ne(const std::string &msg, X param1, Y param2){
+unsigned int test_neq(const std::string &msg, X param1, Y param2){
     auto comp_ne = [](auto p1, auto p2) { return (p1 != p2); };
     return test(msg, param1, param2, comp_ne);
 }
@@ -196,8 +196,8 @@ void test_eq(unsigned int &total, const std::string &msg, X param1, Y param2){
 }
 
 template <typename X, typename Y>
-void test_ne(unsigned int &total, const std::string &msg, X param1, Y param2){
-    total += test_ne<X, Y>(msg, param1, param2);
+void test_neq(unsigned int &total, const std::string &msg, X param1, Y param2){
+    total += test_neq<X, Y>(msg, param1, param2);
 }
 
 template <typename X, typename Y>
