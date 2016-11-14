@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -146,18 +146,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\main.cpp" />
-    <ClCompile Include="..\..\src\test_testforecho.cpp" />
-    <ClCompile Include="..\..\src\test_testforecho_first.cpp" />
-    <ClCompile Include="..\..\src\test_testforecho_second.cpp" />
+    <ClCompile Include="..\..\self_tests\main.cpp" />
+    <ClCompile Include="..\..\self_tests\test_testforecho.cpp" />
+    <ClCompile Include="..\..\self_tests\test_testforecho_first.cpp" />
+    <ClCompile Include="..\..\self_tests\test_testforecho_second.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\testforecho.h" />
-    <ClInclude Include="..\..\src\testforecho_compat.h" />
-    <ClInclude Include="..\..\src\testforecho_internal.h" />
-    <ClInclude Include="..\..\src\test_testforecho.h" />
-    <ClInclude Include="..\..\src\test_testforecho_first.h" />
-    <ClInclude Include="..\..\src\test_testforecho_second.h" />
+    <ClInclude Include="..\..\include\testforecho.h" />
+    <ClInclude Include="..\..\include\testforecho_compat.h" />
+    <ClInclude Include="..\..\include\testforecho_internal.h" />
+    <ClInclude Include="..\..\self_tests\test_testforecho.h" />
+    <ClInclude Include="..\..\self_tests\test_testforecho_first.h" />
+    <ClInclude Include="..\..\self_tests\test_testforecho_second.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

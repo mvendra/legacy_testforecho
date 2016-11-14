@@ -46,14 +46,14 @@
   </Plugins>
   <Description/>
   <Dependencies/>
-  <VirtualDirectory Name="src">
-    <File Name="../../src/main.cpp"/>
-    <File Name="../../src/test_testforecho.cpp"/>
-    <File Name="../../src/test_testforecho.h"/>
-    <File Name="../../src/test_testforecho_first.cpp"/>
-    <File Name="../../src/test_testforecho_first.h"/>
-    <File Name="../../src/test_testforecho_second.cpp"/>
-    <File Name="../../src/test_testforecho_second.h"/>
+  <VirtualDirectory Name="self_tests">
+    <File Name="../../self_tests/main.cpp"/>
+    <File Name="../../self_tests/test_testforecho.cpp"/>
+    <File Name="../../self_tests/test_testforecho.h"/>
+    <File Name="../../self_tests/test_testforecho_first.cpp"/>
+    <File Name="../../self_tests/test_testforecho_first.h"/>
+    <File Name="../../self_tests/test_testforecho_second.cpp"/>
+    <File Name="../../self_tests/test_testforecho_second.h"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
     <File Name="../../include/testforecho.h"/>

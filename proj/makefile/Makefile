@@ -3,7 +3,7 @@
 
 APPNAME=testforecho
 
-BASE_SRC=../../src
+BASE_SRC=../../self_tests
 BASE_OBJ=../../build
 RUN=../../run
 

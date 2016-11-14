@@ -21,7 +21,7 @@ class Builder():
 
         _self.src = ["main.cpp", "test_testforecho.cpp", "test_testforecho_first.cpp", "test_testforecho_second.cpp"]
 
-        _self.src_base = "../../src/"
+        _self.src_base = "../../self_tests/"
         _self.obj_base = "../../build/"
         _self.run_base = "../../run/"
 
