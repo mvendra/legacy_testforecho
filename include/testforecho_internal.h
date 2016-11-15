@@ -97,12 +97,6 @@ unsigned int test_any_no_ex(const std::string &msg, auto testcase){
 // HELPERS
 
 template <typename X>
-unsigned int test_nullptr(const std::string &msg, X param){
-    auto comp_eq = [](auto p1, auto p2) { return (p1 == p2); };
-    return test(msg, param, nullptr, comp_eq);
-}
-
-template <typename X>
 unsigned int test_true(const std::string &msg, X param){
     auto comp_eq = [](auto p1, auto p2) { return (p1 == p2); };
     return test(msg, param, true, comp_eq);
@@ -173,11 +167,6 @@ void test_any_ex(unsigned int &total, const std::string &msg, auto testcase){
 
 void test_any_no_ex(unsigned int &total, const std::string &msg, auto testcase){
     total += test_any_no_ex(msg, testcase);
-}
-
-template <typename X>
-void test_nullptr(unsigned int &total, const std::string &msg, X param){
-    total += test_nullptr<X>(msg, param);
 }
 
 template <typename X>
