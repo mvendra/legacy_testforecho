@@ -8,7 +8,7 @@ testforecho_internal.h and testforecho_compat.h).
 
 ### compiler support
 GCC 5 works "out of the box".
-LLVM 3.9 and MSVC15 also work, when using testforecho in compatibility mode (see below)
+LLVM 3.9 and MSVC14 (VS 2015) also work, when using testforecho in compatibility mode (see below)
 
 testforecho uses generic lambdas (parameter auto), a C\+\+17 feature currently only present on GCC 5 as an extension. Clang 3.9.0, for example, lacks this feature. However, testforecho has a compatibility mode (testforecho_compat.h - not needed if your compiler has the C++ Concepts package)
 
