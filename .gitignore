@@ -8,7 +8,7 @@ build/linux_x64_debug
 build/linux_x64_release
 run
 
-/proj/msvc15/.vs
+/proj/msvc14/.vs
 /build
-/proj/msvc15/testforecho.VC.db
-/proj/msvc15/testforecho.vcxproj.user
+/proj/msvc14/testforecho.VC.db
+/proj/msvc14/testforecho.vcxproj.user
