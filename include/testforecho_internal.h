@@ -116,8 +116,8 @@ unsigned int test_eq(const std::string &msg, X param1, Y param2){
 
 template <typename X, typename Y>
 unsigned int test_neq(const std::string &msg, X param1, Y param2){
-    auto comp_ne = [](auto p1, auto p2) { return (p1 != p2); };
-    return test(msg, param1, param2, comp_ne);
+    auto comp_neq = [](auto p1, auto p2) { return (p1 != p2); };
+    return test(msg, param1, param2, comp_neq);
 }
 
 template <typename X, typename Y>
@@ -127,21 +127,45 @@ unsigned int test_gt(const std::string &msg, X param1, Y param2){
 }
 
 template <typename X, typename Y>
+unsigned int test_ngt(const std::string &msg, X param1, Y param2){
+    auto comp_ngt = [](auto p1, auto p2) { return (!(p1 > p2)); };
+    return test(msg, param1, param2, comp_ngt);
+}
+
+template <typename X, typename Y>
 unsigned int test_ge(const std::string &msg, X param1, Y param2){
     auto comp_ge = [](auto p1, auto p2) { return (p1 >= p2); };
     return test(msg, param1, param2, comp_ge);
 }
 
 template <typename X, typename Y>
+unsigned int test_nge(const std::string &msg, X param1, Y param2){
+    auto comp_nge = [](auto p1, auto p2) { return (!(p1 >= p2)); };
+    return test(msg, param1, param2, comp_nge);
+}
+
+template <typename X, typename Y>
 unsigned int test_lt(const std::string &msg, X param1, Y param2){
-    auto comp_gt = [](auto p1, auto p2) { return (p1 < p2); };
-    return test(msg, param1, param2, comp_gt);
+    auto comp_lt = [](auto p1, auto p2) { return (p1 < p2); };
+    return test(msg, param1, param2, comp_lt);
+}
+
+template <typename X, typename Y>
+unsigned int test_nlt(const std::string &msg, X param1, Y param2){
+    auto comp_nlt = [](auto p1, auto p2) { return (!(p1 < p2)); };
+    return test(msg, param1, param2, comp_nlt);
 }
 
 template <typename X, typename Y>
 unsigned int test_le(const std::string &msg, X param1, Y param2){
     auto comp_le = [](auto p1, auto p2) { return (p1 <= p2); };
     return test(msg, param1, param2, comp_le);
+}
+
+template <typename X, typename Y>
+unsigned int test_nle(const std::string &msg, X param1, Y param2){
+    auto comp_nle = [](auto p1, auto p2) { return (!(p1 <= p2)); };
+    return test(msg, param1, param2, comp_nle);
 }
 
 // INTERFACE EXTENSIONS
@@ -195,8 +219,18 @@ void test_gt(unsigned int &total, const std::string &msg, X param1, Y param2){
 }
 
 template <typename X, typename Y>
+void test_ngt(unsigned int &total, const std::string &msg, X param1, Y param2){
+    total += test_ngt<X, Y>(msg, param1, param2);
+}
+
+template <typename X, typename Y>
 void test_ge(unsigned int &total, const std::string &msg, X param1, Y param2){
     total += test_ge<X, Y>(msg, param1, param2);
+}
+
+template <typename X, typename Y>
+void test_nge(unsigned int &total, const std::string &msg, X param1, Y param2){
+    total += test_nge<X, Y>(msg, param1, param2);
 }
 
 template <typename X, typename Y>
@@ -205,8 +239,18 @@ void test_lt(unsigned int &total, const std::string &msg, X param1, Y param2){
 }
 
 template <typename X, typename Y>
+void test_nlt(unsigned int &total, const std::string &msg, X param1, Y param2){
+    total += test_nlt<X, Y>(msg, param1, param2);
+}
+
+template <typename X, typename Y>
 void test_le(unsigned int &total, const std::string &msg, X param1, Y param2){
     total += test_le<X, Y>(msg, param1, param2);
+}
+
+template <typename X, typename Y>
+void test_nle(unsigned int &total, const std::string &msg, X param1, Y param2){
+    total += test_nle<X, Y>(msg, param1, param2);
 }
 
 } // ns: testforecho

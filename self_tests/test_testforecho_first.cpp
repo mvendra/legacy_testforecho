@@ -84,9 +84,21 @@ unsigned int test_testforecho_first(){
         TEST_FLAG(ret) // expected: true
     }
 
+    // TEST_NGT
+    {
+        unsigned int ret {test_ngt("Must not be greater than", 20, 21)};
+        TEST_FLAG(ret) // expected: true
+    }
+
     // TEST_GE
     {
         unsigned int ret {test_ge("Must be greater-or-equal", 10, 10)};
+        TEST_FLAG(ret) // expected: true
+    }
+
+    // TEST_NGE
+    {
+        unsigned int ret {test_nge("Must not be greater-or-equal", 9, 10)};
         TEST_FLAG(ret) // expected: true
     }
 
@@ -96,9 +108,21 @@ unsigned int test_testforecho_first(){
         TEST_FLAG(ret);
     }
 
+    // TEST_NLT
+    {
+        unsigned int ret {test_nlt("Must not be lesser than", 300, 300)};
+        TEST_FLAG(ret);
+    }
+
     // TEST_LE
     {
         unsigned int ret {test_le("Must be lesser-or-equal", 9, 9)};
+        TEST_FLAG(ret);
+    }
+
+    // TEST_NLE
+    {
+        unsigned int ret {test_nle("Must not be lesser-or-equal", 10, 8)};
         TEST_FLAG(ret);
     }
 
@@ -186,10 +210,24 @@ unsigned int test_testforecho_first(){
         TEST_FLAG(ret) // expected: true
     }
 
+    // TEST_NGT
+    {
+        unsigned int ret {0};
+        test_ngt(ret, "Must not be greater than", 2, 2);
+        TEST_FLAG(ret) // expected: true
+    }
+
     // TEST_GE
     {
         unsigned int ret {0};
         test_ge(ret, "Must be greater-or-equal", 2, 2);
+        TEST_FLAG(ret) // expected: true
+    }
+
+    // TEST_NGE
+    {
+        unsigned int ret {0};
+        test_nge(ret, "Must not be greater-or-equal", 1, 2);
         TEST_FLAG(ret) // expected: true
     }
 
@@ -200,10 +238,24 @@ unsigned int test_testforecho_first(){
         TEST_FLAG(ret) // expected: true
     }
 
+    // TEST_NLT
+    {
+        unsigned int ret {0};
+        test_nlt(ret, "Must not be lesser than", 2, 2);
+        TEST_FLAG(ret) // expected: true
+    }
+
     // TEST_LE
     {
         unsigned int ret {0};
         test_le(ret, "Must be lesser-or-equal", 2, 2);
+        TEST_FLAG(ret) // expected: true
+    }
+
+    // TEST_NLE
+    {
+        unsigned int ret {0};
+        test_nle(ret, "Must not be lesser-or-equal", 3, 2);
         TEST_FLAG(ret) // expected: true
     }
 

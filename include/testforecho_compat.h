@@ -154,6 +154,20 @@ unsigned int test_gt(const std::string &msg, X param1, Y param2){
 }
 
 template <typename X, typename Y>
+unsigned int test_ngt(const std::string &msg, X param1, Y param2){
+
+    // reporting
+    std::string t1 = handy_conversion(param1);
+    std::string t2 = handy_conversion(param2);
+    std::string msg_plus_params = msg + " (" + t1 + ", " + t2 + ")";
+
+    // testing
+    if (!(param1 > param2)){ PASS(msg_plus_params); }
+    else { FAIL(msg_plus_params); }
+
+}
+
+template <typename X, typename Y>
 unsigned int test_ge(const std::string &msg, X param1, Y param2){
 
     // reporting
@@ -163,6 +177,20 @@ unsigned int test_ge(const std::string &msg, X param1, Y param2){
 
     // testing
     if (param1 >= param2){ PASS(msg_plus_params); }
+    else { FAIL(msg_plus_params); }
+
+}
+
+template <typename X, typename Y>
+unsigned int test_nge(const std::string &msg, X param1, Y param2){
+
+    // reporting
+    std::string t1 = handy_conversion(param1);
+    std::string t2 = handy_conversion(param2);
+    std::string msg_plus_params = msg + " (" + t1 + ", " + t2 + ")";
+
+    // testing
+    if (!(param1 >= param2)){ PASS(msg_plus_params); }
     else { FAIL(msg_plus_params); }
 
 }
@@ -182,6 +210,20 @@ unsigned int test_lt(const std::string &msg, X param1, Y param2){
 }
 
 template <typename X, typename Y>
+unsigned int test_nlt(const std::string &msg, X param1, Y param2){
+
+    // reporting
+    std::string t1 = handy_conversion(param1);
+    std::string t2 = handy_conversion(param2);
+    std::string msg_plus_params = msg + " (" + t1 + ", " + t2 + ")";
+
+    // testing
+    if (!(param1 < param2)){ PASS(msg_plus_params); }
+    else { FAIL(msg_plus_params); }
+
+}
+
+template <typename X, typename Y>
 unsigned int test_le(const std::string &msg, X param1, Y param2){
 
     // reporting
@@ -191,6 +233,20 @@ unsigned int test_le(const std::string &msg, X param1, Y param2){
 
     // testing
     if (param1 <= param2){ PASS(msg_plus_params); }
+    else { FAIL(msg_plus_params); }
+
+}
+
+template <typename X, typename Y>
+unsigned int test_nle(const std::string &msg, X param1, Y param2){
+
+    // reporting
+    std::string t1 = handy_conversion(param1);
+    std::string t2 = handy_conversion(param2);
+    std::string msg_plus_params = msg + " (" + t1 + ", " + t2 + ")";
+
+    // testing
+    if (!(param1 <= param2)){ PASS(msg_plus_params); }
     else { FAIL(msg_plus_params); }
 
 }
@@ -241,8 +297,18 @@ void test_gt(unsigned int &total, const std::string &msg, X param1, Y param2){
 }
 
 template <typename X, typename Y>
+void test_ngt(unsigned int &total, const std::string &msg, X param1, Y param2){
+    total += test_ngt<X, Y>(msg, param1, param2);
+}
+
+template <typename X, typename Y>
 void test_ge(unsigned int &total, const std::string &msg, X param1, Y param2){
     total += test_ge<X, Y>(msg, param1, param2);
+}
+
+template <typename X, typename Y>
+void test_nge(unsigned int &total, const std::string &msg, X param1, Y param2){
+    total += test_nge<X, Y>(msg, param1, param2);
 }
 
 template <typename X, typename Y>
@@ -251,8 +317,18 @@ void test_lt(unsigned int &total, const std::string &msg, X param1, Y param2){
 }
 
 template <typename X, typename Y>
+void test_nlt(unsigned int &total, const std::string &msg, X param1, Y param2){
+    total += test_nlt<X, Y>(msg, param1, param2);
+}
+
+template <typename X, typename Y>
 void test_le(unsigned int &total, const std::string &msg, X param1, Y param2){
     total += test_le<X, Y>(msg, param1, param2);
+}
+
+template <typename X, typename Y>
+void test_nle(unsigned int &total, const std::string &msg, X param1, Y param2){
+    total += test_nle<X, Y>(msg, param1, param2);
 }
 
 } // ns: testforecho
