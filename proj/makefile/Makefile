@@ -21,7 +21,6 @@ ifeq ($(MODE),)
 endif
 
 ifeq ($(MODE),debug)
-BASE_OBJ_FULL=$(BASE_OBJ_FULL)_
 INTFLAGS = \
 	-g \
 	-Wall \
@@ -30,7 +29,6 @@ INTFLAGS = \
 	-Weffc++ \
 	-Werror \
 	-fPIC \
-	-pthread \
 	-D_GLIBCXX_DEBUG \
 	-std=c++14
 POSTBUILD=
@@ -52,9 +50,9 @@ POSTBUILD= strip $(FULL_APP_NAME)
 endif
 
 ifeq ($(ARCH),64)
-CPPFLAGS = $(INTFLAGS) -m64
+	CPPFLAGS = $(INTFLAGS) -m64
 else 
-CPPFLAGSS = $(INTFLAGS)
+	CPPFLAGSS = $(INTFLAGS)
 endif
 
 INCLUDES=-I$(BASE_SRC) -I../../include
