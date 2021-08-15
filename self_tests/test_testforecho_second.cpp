@@ -14,11 +14,15 @@ unsigned int test_testforecho_second(){
         T4E_MAKE_0(p, {throw 1;})
         unsigned int ret {test_ex<int>("Must throw int", T4E_GET(p))};
         TEST_FLAG(ret) // expected: true
+        ret = test_ex<int>(T4E_GET(p));
+        TEST_FLAG(ret) // expected: true
     }
 
     // TEST_EQ
     {
         unsigned int ret {test_eq("Must be equal", 1, 1)};
+        TEST_FLAG(ret) // expected: true
+        ret = test_eq(1, 1);
         TEST_FLAG(ret) // expected: true
     }
 
@@ -27,6 +31,8 @@ unsigned int test_testforecho_second(){
         int o = 9;
         T4E_MAKE_1(p, int, o, { if (o == 9) {throw 1;} })
         unsigned int ret {test_ex<int>("Must throw int - single capture", T4E_GET(p))};
+        TEST_FLAG(ret)
+        ret = test_ex<int>(T4E_GET(p));
         TEST_FLAG(ret)
     }
 
@@ -37,6 +43,8 @@ unsigned int test_testforecho_second(){
 
         T4E_MAKE_2(p, int, v1, char, v2, if (v1 == 1){ if (v2 == 'a'){ throw 1; }} )
         unsigned int ret {test_ex<int>("Must throw int - from double capture", T4E_GET(p))};
+        TEST_FLAG(ret)
+        ret = test_ex<int>(T4E_GET(p));
         TEST_FLAG(ret)
 
     }

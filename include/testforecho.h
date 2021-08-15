@@ -23,8 +23,8 @@ namespace testforecho {
 #define PRINT_SUCCESS(MSG) std::cout << COLOR_GREEN << MSG << COLOR_WHITE << std::endl;
 #define PRINT_INFO(MSG) std::cout << COLOR_WHITE << MSG << std::endl;
 
-#define PASS(MSG) PRINT_SUCCESS("Passed: " + MSG); return 0;
-#define FAIL(MSG) PRINT_ERROR("FAILED: " + MSG); return 1;
+#define PASS(MSG) PRINT_SUCCESS( (MSG == "" ? "Passed." : "Passed: " + MSG) ); return 0;
+#define FAIL(MSG) PRINT_ERROR  ( (MSG == "" ? "FAILED." : "FAILED: " + MSG) ); return 1;
 
 template <typename T>
 std::string handy_conversion(T val){
