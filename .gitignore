@@ -12,3 +12,5 @@ run
 /build
 /proj/msvc14/testforecho.VC.db
 /proj/msvc14/testforecho.vcxproj.user
+/proj/codelite/compile_flags.txt
+

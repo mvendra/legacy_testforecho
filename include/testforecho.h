@@ -9,6 +9,12 @@
 
 namespace testforecho {
 
+#ifndef NDEBUG // debug mode
+#define PRIVATE public
+#else
+#define PRIVATE private
+#endif
+
 #define COLOR_WHITE  "\033[0m"
 #define COLOR_RED    "\033[31m"
 #define COLOR_GREEN  "\033[32m"
