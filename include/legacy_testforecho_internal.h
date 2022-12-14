@@ -7,7 +7,7 @@
 #pragma GCC system_header // disabling error-triggering warnings
 #endif
 
-namespace testforecho {
+namespace legacy_testforecho {
 
 #define T4E_MAKE_0(A, ...) auto A = []() { __VA_ARGS__ };
 #define T4E_MAKE_1(A, T1, V1, ...) auto A = [&V1]() { __VA_ARGS__ };
@@ -421,6 +421,6 @@ void test_nle(unsigned int &total, X param1, Y param2){
     total += test_nle<X, Y>(param1, param2);
 }
 
-} // ns: testforecho
+} // ns: legacy_testforecho
 
-#endif // __TESTFORECHO_INTERNAL_H__
+#endif // __LEGACY_TESTFORECHO_INTERNAL_H__

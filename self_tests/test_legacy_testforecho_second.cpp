@@ -1,11 +1,11 @@
 
-#include "test_testforecho_second.h"
+#include "test_legacy_testforecho_second.h"
 
-#include "testforecho.h"
+#include "legacy_testforecho.h"
 
-using namespace testforecho;
+using namespace legacy_testforecho;
 
-unsigned int test_testforecho_second(){
+unsigned int test_legacy_testforecho_second(){
 
 #define TEST_FLAG(EXPR) if ((EXPR) > 0) { std::cout << "Incorrect flag!" << std::endl; return 1; }
 

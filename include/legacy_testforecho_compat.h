@@ -1,10 +1,10 @@
 
-#ifndef __TESTFORECHO_COMPAT_H__
-#define __TESTFORECHO_COMPAT_H__
+#ifndef __LEGACY_TESTFORECHO_COMPAT_H__
+#define __LEGACY_TESTFORECHO_COMPAT_H__
 
 #include <memory>
 
-namespace testforecho {
+namespace legacy_testforecho {
 
 struct subj_code {
     subj_code() {};
@@ -511,6 +511,6 @@ void test_nle(unsigned int &total, X param1, Y param2){
     total += test_nle<X, Y>("", param1, param2);
 }
 
-} // ns: testforecho
+} // ns: legacy_testforecho
 
-#endif //__TESTFORECHO_COMPAT_H__
+#endif //__LEGACY_TESTFORECHO_COMPAT_H__

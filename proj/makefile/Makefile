@@ -1,13 +1,13 @@
 
 .PHONY : all clean compile link 
 
-APPNAME=testforecho
+APPNAME=legacy_testforecho
 
 BASE_SRC=../../self_tests
 BASE_OBJ=../../build
 RUN=../../run
 
-SRC=main.cpp test_testforecho.cpp test_testforecho_first.cpp test_testforecho_second.cpp
+SRC=main.cpp test_legacy_testforecho.cpp test_legacy_testforecho_first.cpp test_legacy_testforecho_second.cpp
 #SRC_FULL=$(addprefix $(BASE_SRC)/, $(SRC))
 #OBJ=$(SRC:.cpp=.o) 
 #OBJ_FULL=$(addprefix $(BASE_OBJ)/, $(OBJ))

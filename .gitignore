@@ -1,8 +1,8 @@
 
 *.swp
 *.o
-proj/codelite/testforecho.mk
-proj/codelite/testforecho.txt
+proj/codelite/legacy_testforecho.mk
+proj/codelite/legacy_testforecho.txt
 
 build/linux_x64_debug
 build/linux_x64_release
@@ -10,7 +10,7 @@ run
 
 /proj/msvc14/.vs
 /build
-/proj/msvc14/testforecho.VC.db
-/proj/msvc14/testforecho.vcxproj.user
+/proj/msvc14/legacy_testforecho.VC.db
+/proj/msvc14/legacy_testforecho.vcxproj.user
 /proj/codelite/compile_flags.txt
 

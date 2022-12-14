@@ -1,16 +1,16 @@
 
-#include "test_testforecho_first.h"
+#include "test_legacy_testforecho_first.h"
 
-#include "testforecho.h"
+#include "legacy_testforecho.h"
 
-using namespace testforecho;
+using namespace legacy_testforecho;
 
-unsigned int test_testforecho_first(){
+unsigned int test_legacy_testforecho_first(){
 
 #define TEST_FLAG(EXPR) if ((EXPR) > 0) { std::cout << "Incorrect flag!" << std::endl; return 1; }
 
     #ifdef COMPILER_NO_CONCEPTS_SUPPORT
-    PRINT_INFO("Using testforecho in compatibility mode (no param auto)")
+    PRINT_INFO("Using legacy_testforecho in compatibility mode (no param auto)")
     #endif
 
     ///////////////////

@@ -1,13 +1,13 @@
 
-#ifndef __TESTFORECHO_H__
-#define __TESTFORECHO_H__
+#ifndef __LEGACY_TESTFORECHO_H__
+#define __LEGACY_TESTFORECHO_H__
 
 #include <string>
 #include <iostream>
 #include <sstream>
 #include <typeinfo> // for typeid()
 
-namespace testforecho {
+namespace legacy_testforecho {
 
 #ifndef NDEBUG // debug mode
 #define PRIVATE public
@@ -36,12 +36,12 @@ std::string handy_conversion(T val){
     return ss.str(); 
 }
 
-} // ns: testforecho
+} // ns: legacy_testforecho
 
 #ifndef COMPILER_NO_CONCEPTS_SUPPORT
-#include "testforecho_internal.h"
+#include "legacy_testforecho_internal.h"
 #else
-#include "testforecho_compat.h"
+#include "legacy_testforecho_compat.h"
 #endif // COMPILER_NO_CONCEPTS_SUPPORT
 
-#endif // __TESTFORECHO_H__
+#endif // __LEGACY_TESTFORECHO_H__

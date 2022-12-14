@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeLite_Project Name="testforecho" InternalType="Console" Version="11000">
+<CodeLite_Project Name="legacy_testforecho" InternalType="Console" Version="11000">
   <Plugins>
     <Plugin Name="qmake">
       <![CDATA[00040001N0005Debug0000000000000001N0012Debug (LLVM)0000000000000001N0007Release0000000000000001N0014Release (LLVM)000000000000]]>
@@ -48,17 +48,17 @@
   <Dependencies/>
   <VirtualDirectory Name="self_tests">
     <File Name="../../self_tests/main.cpp"/>
-    <File Name="../../self_tests/test_testforecho.cpp"/>
-    <File Name="../../self_tests/test_testforecho.h"/>
-    <File Name="../../self_tests/test_testforecho_first.cpp"/>
-    <File Name="../../self_tests/test_testforecho_first.h"/>
-    <File Name="../../self_tests/test_testforecho_second.cpp"/>
-    <File Name="../../self_tests/test_testforecho_second.h"/>
+    <File Name="../../self_tests/test_legacy_testforecho.cpp"/>
+    <File Name="../../self_tests/test_legacy_testforecho.h"/>
+    <File Name="../../self_tests/test_legacy_testforecho_first.cpp"/>
+    <File Name="../../self_tests/test_legacy_testforecho_first.h"/>
+    <File Name="../../self_tests/test_legacy_testforecho_second.cpp"/>
+    <File Name="../../self_tests/test_legacy_testforecho_second.h"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
-    <File Name="../../include/testforecho.h"/>
-    <File Name="../../include/testforecho_compat.h"/>
-    <File Name="../../include/testforecho_internal.h"/>
+    <File Name="../../include/legacy_testforecho.h"/>
+    <File Name="../../include/legacy_testforecho_compat.h"/>
+    <File Name="../../include/legacy_testforecho_internal.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

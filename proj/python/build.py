@@ -16,10 +16,10 @@ class Builder():
         _self.basepath = basepath
         _self.options = _self.parseoptions(options)
 
-        _self.appname = "testforecho"
+        _self.appname = "legacy_testforecho"
         _self.compiler = "g++"
 
-        _self.src = ["main.cpp", "test_testforecho.cpp", "test_testforecho_first.cpp", "test_testforecho_second.cpp"]
+        _self.src = ["main.cpp", "test_legacy_testforecho.cpp", "test_legacy_testforecho_first.cpp", "test_legacy_testforecho_second.cpp"]
 
         _self.src_base = "../../self_tests/"
         _self.obj_base = "../../build/"
